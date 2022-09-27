@@ -1,13 +1,10 @@
 package com.javatechie.rabbitmq.demo.publisher;
 
 import com.javatechie.rabbitmq.demo.config.RabbitConfig;
-import com.javatechie.rabbitmq.demo.dto.Order;
-import com.javatechie.rabbitmq.demo.dto.OrderStatus;
+import org.json.simple.JSONObject;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/order")
@@ -20,11 +17,8 @@ public class OrderPublisher {
     public RabbitConfig rabbitConfig;
 
     @PostMapping("/hi")
-    public String bookOrder(@RequestBody Order order) {
-        order.setOrderId(UUID.randomUUID().toString());
-
-        OrderStatus orderStatus = new OrderStatus(order, "PROCESS", "order placed successfully in ");
-        template.convertAndSend(rabbitConfig.getQUEUE(), rabbitConfig.getROUTING_KEY(), orderStatus);
+    public String bookOrder(@RequestBody JSONObject order) {
+        template.convertAndSend(rabbitConfig.getQUEUE(), rabbitConfig.getROUTING_KEY(), order);
         return "Success !!";
     }
 }
