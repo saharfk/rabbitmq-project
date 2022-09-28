@@ -11,6 +11,59 @@ public class RabbitConfig {
     private String EXCHANGE;
     @Value("${rabbitmq.routingkey}")
     private String ROUTING_KEY;
+    @Value("${spring.rabbitmq.host}")
+    private String HOST;
+    @Value("${spring.rabbitmq.port}")
+    private String PORT;
+    @Value("${spring.rabbitmq.username}")
+    private String USERNAME;
+    @Value("${spring.rabbitmq.password}")
+    private String PASSWORD;
+
+    @Override
+    public String toString() {
+        return "RabbitConfig{" +
+                "QUEUE='" + QUEUE + '\'' +
+                ", EXCHANGE='" + EXCHANGE + '\'' +
+                ", ROUTING_KEY='" + ROUTING_KEY + '\'' +
+                ", HOST='" + HOST + '\'' +
+                ", PORT='" + PORT + '\'' +
+                ", USERNAME='" + USERNAME + '\'' +
+                ", PASSWORD='" + PASSWORD + '\'' +
+                '}';
+    }
+
+    public String getHOST() {
+        return HOST;
+    }
+
+    public void setHOST(String HOST) {
+        this.HOST = HOST;
+    }
+
+    public String getPORT() {
+        return PORT;
+    }
+
+    public void setPORT(String PORT) {
+        this.PORT = PORT;
+    }
+
+    public String getUSERNAME() {
+        return USERNAME;
+    }
+
+    public void setUSERNAME(String USERNAME) {
+        this.USERNAME = USERNAME;
+    }
+
+    public String getPASSWORD() {
+        return PASSWORD;
+    }
+
+    public void setPASSWORD(String PASSWORD) {
+        this.PASSWORD = PASSWORD;
+    }
 
     public String getQUEUE() {
         return QUEUE;
