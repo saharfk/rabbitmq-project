@@ -1,6 +1,5 @@
 package com.javatechie.rabbitmq.demo.consumer;
 
-//import com.javatechie.rabbitmq.demo.dto.OrderStatus;
 import org.json.simple.JSONObject;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

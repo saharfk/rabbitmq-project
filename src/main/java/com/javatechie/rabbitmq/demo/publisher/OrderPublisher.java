@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/rabbit")
 public class OrderPublisher {
 
     @Autowired
@@ -16,11 +16,9 @@ public class OrderPublisher {
     @Autowired
     public RabbitConfig rabbitConfig;
 
-    @PostMapping("/hi")
-    public String bookOrder(@RequestBody JSONObject order) {
-        System.out.println("I am here");
-        template.convertAndSend(rabbitConfig.getQUEUE(), rabbitConfig.getROUTING_KEY(), order);
-        System.out.println("i am here 2");
+    @PostMapping("/report")
+    public String bookOrder(@RequestBody JSONObject inOut) {
+        template.convertAndSend(rabbitConfig.getEXCHANGE(), rabbitConfig.getROUTING_KEY(), inOut);
         return "Success !!";
     }
 }

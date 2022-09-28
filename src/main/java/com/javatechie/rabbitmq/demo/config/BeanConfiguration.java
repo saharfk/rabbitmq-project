@@ -26,7 +26,6 @@ public class BeanConfiguration {
     @Bean("mainConnectionFactory")
     public ConnectionFactory mainConnectionFactory() throws Exception {
         return connectionFactory("172.18.63.37", 5672, "ussd_admin", "RabbitMQ2018");
-
     }
 
     private CachingConnectionFactory connectionFactory(String host, int port, String username, String password) {
