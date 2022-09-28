@@ -1,0 +1,6 @@
+com\javatechie\rabbitmq\demo\config\RabbitConfig.class
+com\javatechie\rabbitmq\demo\consumer\User.class
+com\javatechie\rabbitmq\demo\SpringbootRabbitmqExampleApplication.class
+com\javatechie\rabbitmq\demo\config\MessagingConfig.class
+com\javatechie\rabbitmq\demo\config\BeanConfiguration.class
+com\javatechie\rabbitmq\demo\publisher\OrderPublisher.class

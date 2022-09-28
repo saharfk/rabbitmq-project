@@ -18,7 +18,9 @@ public class OrderPublisher {
 
     @PostMapping("/hi")
     public String bookOrder(@RequestBody JSONObject order) {
+        System.out.println("I am here");
         template.convertAndSend(rabbitConfig.getQUEUE(), rabbitConfig.getROUTING_KEY(), order);
+        System.out.println("i am here 2");
         return "Success !!";
     }
 }
