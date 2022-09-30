@@ -17,7 +17,7 @@ public class OrderPublisher {
     public RabbitConfig rabbitConfig;
 
     @PostMapping("/report")
-    public String bookOrder(@RequestBody JSONObject inOut) {
+    public String report(@RequestBody String inOut) {
         template.convertAndSend(rabbitConfig.getEXCHANGE(), rabbitConfig.getROUTING_KEY(), inOut);
         return "Success !!";
     }
