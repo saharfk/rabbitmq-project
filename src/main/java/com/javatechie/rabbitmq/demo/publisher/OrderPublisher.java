@@ -18,6 +18,7 @@ public class OrderPublisher {
 
     @PostMapping("/report")
     public String report(@RequestBody String inOut) {
+        System.out.println("i am here");
         template.convertAndSend(rabbitConfig.getEXCHANGE(), rabbitConfig.getROUTING_KEY(), inOut);
         return "Success !!";
     }

@@ -1,14 +1,19 @@
 package com.javatechie.rabbitmq.demo.config;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 
 @Configuration
@@ -20,7 +25,7 @@ public class BeanConfiguration {
 
     @Bean
     public DirectExchange getDirectExchange() {
-        return new DirectExchange("log_ex", false, false);
+        return new DirectExchange("parsaaa", false, false);
     }
 
     @Bean("mainConnectionFactory")
@@ -42,4 +47,18 @@ public class BeanConfiguration {
         return new RabbitTemplate(connectionFactory);
     }
 
+    @Bean
+    public Binding binding(Queue queue, DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(rabbitConfig.getROUTING_KEY());
+    }
+
+    @Bean("queue")
+    public Queue queue() {
+        return new Queue(rabbitConfig.getQUEUE());
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplateBuilder().build();
+    }
 }

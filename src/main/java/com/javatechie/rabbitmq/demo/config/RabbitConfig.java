@@ -19,6 +19,8 @@ public class RabbitConfig {
     private String USERNAME;
     @Value("${spring.rabbitmq.password}")
     private String PASSWORD;
+    @Value("${rabbit.url}")
+    private String rabbitUrl;
 
     @Override
     public String toString() {
@@ -30,7 +32,16 @@ public class RabbitConfig {
                 ", PORT='" + PORT + '\'' +
                 ", USERNAME='" + USERNAME + '\'' +
                 ", PASSWORD='" + PASSWORD + '\'' +
+                ", rabbitUrl='" + rabbitUrl + '\'' +
                 '}';
+    }
+
+    public String getRabbitUrl() {
+        return rabbitUrl;
+    }
+
+    public void setRabbitUrl(String rabbitUrl) {
+        this.rabbitUrl = rabbitUrl;
     }
 
     public String getHOST() {
