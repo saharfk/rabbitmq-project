@@ -1,0 +1,4 @@
+15:19:39.841 ERROR [AMQP Connection 192.168.25.37:49154][CachingConnectionFactory] Channel shutdown: connection error
+15:23:59.608 ERROR [AMQP Connection 192.168.25.37:49154][CachingConnectionFactory] Channel shutdown: connection error
+15:23:59.612 ERROR [AMQP Connection 192.168.25.37:49154][CachingConnectionFactory] Channel shutdown: connection error
+15:23:59.613 ERROR [AMQP Connection 192.168.25.37:49154][CachingConnectionFactory] Channel shutdown: connection error
