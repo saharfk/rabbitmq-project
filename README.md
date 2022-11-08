@@ -1,4 +1,9 @@
 # springboot-rabbitmq-example
+# how to test this service
+
+to run this service tou should first clone and run the [quiz](https://github.com/saharfk/quizWithSpringboot) project. then after calling the quiz rest APIs the log of them will be sent to database via this services rabbitmq.
+
+-----------------------------------------------------
 How to use RabbitMQ with Publisher and Consumer Example
 
 Install RabbitMQ in windows :
